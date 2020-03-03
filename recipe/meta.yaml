@@ -1,4 +1,4 @@
-{% set version = "1.1.6" %}
+{% set version = "1.1.7" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/heatmap3_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/heatmap3/heatmap3_{{ version }}.tar.gz
-  sha256: 5d5a3d574e9e3699490c93a523ce242006257e5be110935d58c74c135a4e4a8d
+  sha256: bab39bdcc462ed9e15dda54d58385b7c8d2bca800cd0e6ee2fce12475661b2bd
 
 build:
   noarch: generic
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -38,11 +38,10 @@ test:
 about:
   home: https://CRAN.R-project.org/package=heatmap3
   license: GPL (>= 2)
-  summary: An improved heatmap package. Completely compatible with the original R function 'heatmap',
-    and provides more powerful and convenient features.
+  summary: An improved heatmap package. Completely compatible with the original R function 'heatmap', and provides more powerful and convenient features.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3  # [unix]
+  license_file: {{ environ["PREFIX"] }}\R\share\licenses\GPL-3  # [win]
 
 extra:
   recipe-maintainers:
