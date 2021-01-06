@@ -1,4 +1,4 @@
-{% set version = "1.1.7" %}
+{% set version = "1.1.9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/heatmap3_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/heatmap3/heatmap3_{{ version }}.tar.gz
-  sha256: bab39bdcc462ed9e15dda54d58385b7c8d2bca800cd0e6ee2fce12475661b2bd
+  sha256: 594c33947b2be2cc8a592075f41a0df2398c892add7d63a15c613a5eeb8fdb69
 
 build:
   noarch: generic
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
