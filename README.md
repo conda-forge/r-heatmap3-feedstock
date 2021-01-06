@@ -5,11 +5,9 @@ Home: https://CRAN.R-project.org/package=heatmap3
 
 Package license: GPL (>= 2)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-heatmap3-feedstock/blob/master/LICENSE.txt)
 
 Summary: An improved heatmap package. Completely compatible with the original R function 'heatmap', and provides more powerful and convenient features.
-
-
 
 Current build status
 ====================
