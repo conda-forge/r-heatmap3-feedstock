@@ -8,18 +8,22 @@ package:
 
 source:
   url:
-    - https://cran.r-project.org/src/contrib/heatmap3_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/heatmap3/heatmap3_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/heatmap3_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/heatmap3/heatmap3_{{ version }}.tar.gz
   sha256: 594c33947b2be2cc8a592075f41a0df2398c892add7d63a15c613a5eeb8fdb69
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
+  build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-fastcluster
@@ -29,16 +33,16 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('heatmap3')"  # [not win]
+    - $R -e "library('heatmap3')"           # [not win]
     - "\"%R%\" -e \"library('heatmap3')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=heatmap3
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: An improved heatmap package. Completely compatible with the original R function 'heatmap', and provides more powerful and convenient features.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3  # [unix]
-  license_file: {{ environ["PREFIX"] }}\R\share\licenses\GPL-3  # [win]
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
