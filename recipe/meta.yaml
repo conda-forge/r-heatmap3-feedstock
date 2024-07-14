@@ -1,6 +1,5 @@
 {% set version = "1.1.9" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-heatmap3
@@ -13,8 +12,7 @@ source:
   sha256: 594c33947b2be2cc8a592075f41a0df2398c892add7d63a15c613a5eeb8fdb69
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  number: 3
   noarch: generic
   rpaths:
     - lib/R/lib/
